@@ -13,7 +13,10 @@ namespace PessoasAPI.Services
                 return new List<Pessoa>();
 
             var json = File.ReadAllText(_filePath);
-            return JsonSerializer.Deserialize<List<Pessoa>>(json) ?? new List<Pessoa>();
+            return JsonSerializer.Deserialize<List<Pessoa>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            }) ?? new List<Pessoa>();
         }
 
         public void SaveAll(List<Pessoa> pessoas)

@@ -5,6 +5,7 @@
   </mat-form-field>
 
   <button mat-raised-button color="primary" (click)="carregarPessoas()">Carregar Pessoas</button>
+  <button mat-raised-button color="accent" (click)="adicionarPessoa()">Adicionar Pessoa</button>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -48,6 +49,13 @@
     <ng-container matColumnDef="estado">
       <th mat-header-cell *matHeaderCellDef> Estado </th>
       <td mat-cell *matCellDef="let pessoa"> {{pessoa.estado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let pessoa">
+          <button mat-button color="warn" (click)="deletarPessoa(pessoa.id)">Excluir</button>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="colunas"></tr>

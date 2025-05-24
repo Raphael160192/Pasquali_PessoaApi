@@ -6,6 +6,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { PessoaFormModalComponent } from '../pessoa-form-modal/pessoa-form-modal.component'; // ajuste o caminho conforme necessário
+
 
 import { Pessoa, PessoaService } from '../../services/pessoa.service';
 
@@ -29,7 +32,8 @@ export class PessoaListaComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private pessoaService: PessoaService) {}
+  constructor(private pessoaService: PessoaService, private dialog: MatDialog) {}
+
 
 carregarPessoas() {
   this.pessoaService.getPessoas().subscribe({
@@ -39,7 +43,30 @@ carregarPessoas() {
     },
     error: err => console.error('Erro ao buscar pessoas:', err)
   });
+  
 }
+
+adicionarPessoa() {
+  const dialogRef = this.dialog.open(PessoaFormModalComponent, {
+    width: '400px'
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.pessoaService.adicionarPessoa(result).subscribe(() => {
+        this.carregarPessoas();
+      });
+    }
+  });
+}
+
+
+deletarPessoa(id: number) {
+  this.pessoaService.deletarPessoa(id).subscribe(() => {
+    this.carregarPessoas(); // Recarrega a lista
+  });
+}
+
 
   applyFilter(event: Event) {
     const valorFiltro = (event.target as HTMLInputElement).value;

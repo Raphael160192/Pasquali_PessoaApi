@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface Pessoa {
-  cpf: string;
+  id?: number;
   nome: string;
+  cpf: string;
   genero: string;
   endereco: string;
   idade: number;
@@ -23,5 +24,12 @@ export class PessoaService {
 
   getPessoas(): Observable<Pessoa[]> {
     return this.http.get<Pessoa[]>(this.baseUrl);
+  }
+    adicionarPessoa(pessoa: Pessoa): Observable<Pessoa> {
+    return this.http.post<Pessoa>(this.baseUrl, pessoa);
+  }
+
+  deletarPessoa(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 }
