@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nome": "Ana Silva",
+    "cpf": "123.456.789-00",
+    "genero": "Feminino",
+    "endereco": "Rua A, 123",
+    "idade": 30,
+    "municipio": "São Paulo",
+    "estado": "SP"
+  },
+  {
+    "id": 2,
+    "nome": "Carlos Souza",
+    "cpf": "987.654.321-00",
+    "genero": "Masculino",
+    "endereco": "Av. B, 456",
+    "idade": 40,
+    "municipio": "Rio de Janeiro",
+    "estado": "RJ"
+  }
+]

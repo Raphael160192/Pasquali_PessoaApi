@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-form-field appearance="fill">
+    <mat-label>Filtrar por nome</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Digite o nome" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="carregarPessoas()">Carregar Pessoas</button>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Nome Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.nome}} </td>
+    </ng-container>
+
+    <!-- Cpf Column -->
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef> CPF </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.cpf}} </td>
+    </ng-container>
+
+    <!-- Genero Column -->
+    <ng-container matColumnDef="genero">
+      <th mat-header-cell *matHeaderCellDef> Gênero </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.genero}} </td>
+    </ng-container>
+
+    <!-- Endereco Column -->
+    <ng-container matColumnDef="endereco">
+      <th mat-header-cell *matHeaderCellDef> Endereço </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.endereco}} </td>
+    </ng-container>
+
+    <!-- Idade Column -->
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef> Idade </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.idade}} </td>
+    </ng-container>
+
+    <!-- Municipio Column -->
+    <ng-container matColumnDef="municipio">
+      <th mat-header-cell *matHeaderCellDef> Município </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.municipio}} </td>
+    </ng-container>
+
+    <!-- Estado Column -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let pessoa"> {{pessoa.estado}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+  </table>
+
+  <mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+</div>
