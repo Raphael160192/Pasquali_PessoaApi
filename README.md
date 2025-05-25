@@ -23,26 +23,6 @@ Este é um projeto full stack construído como teste técnico para processo sele
 
 ---
 
-## 📁 Estrutura de Pastas
-
-```
-/PessoasApp
-│
-├── Backend
-│   ├── Controller
-│   ├── Models
-│   ├── Services
-│   ├── Data/pessoas.json
-│   └── Program.cs
-│
-└── Frontend
-    ├── src/app/components/pessoa-lista
-    ├── src/app/services/pessoa.service.ts
-    └── ...
-```
-
----
-
 ## ▶️ Como Rodar o Projeto
 
 ### 📦 Pré-requisitos
@@ -57,7 +37,7 @@ Este é um projeto full stack construído como teste técnico para processo sele
 ### 🔌 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/pessoas-app.git
+git clone https://github.com/Raphael160192/Pasquali_PessoaApi
 cd pessoas-app
 ```
 
@@ -95,18 +75,14 @@ A interface estará disponível em:
 - Tabela com paginação, filtro e ordenação.
 - Dados carregados diretamente da API.
 
-### ➕ Adicionar Pessoa (extra)
+### ➕ Adicionar Pessoa (extra) ✅✅✅
 
 - Botão **"Adicionar Pessoa"** abre um **modal responsivo**.
 - Formulário com validações de campos obrigatórios, CPF, e formatos.
 - Envio via método `POST` para o backend.
 - Recarregamento automático da lista.
 
-### ❌ Excluir Pessoa (extra)
-
-- Botão de exclusão direto na tabela.
-- Método `DELETE` consumido via API.
-- Atualização em tempo real da listagem.
+![alt text](Adicionar.png)
 
 ---
 
@@ -154,20 +130,3 @@ Este projeto demonstra:
 
 ---
 
-## 👤 Autor
-
-**Raphael da Silva Gundin**  
-💻 Desenvolvedor Full Stack .NET & Angular  
-📧 [Seu email ou LinkedIn, se desejar]
-
----
-
-## 📌 Screenshots (sugestão)
-
-Você pode adicionar imagens da interface rodando, do modal de cadastro e do backend em execução para enriquecer visualmente o repositório.
-
----
-
-## 📄 Licença
-
-Este projeto é de uso demonstrativo e técnico. Você pode usar, adaptar e contribuir livremente.
